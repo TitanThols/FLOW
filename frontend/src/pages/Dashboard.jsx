@@ -123,7 +123,7 @@ export default function Dashboard() {
         <header className={styles.header}>
           <div>
             <div className={styles.headerLabel}>
-              {activeTab === 'assets' ? '// ASSET_PIPELINE' : '// SCENE_LIBRARY'}
+              {activeTab === 'assets' ? 'ASSET_PIPELINE' : '// SCENE_LIBRARY'}
             </div>
             <h1 className={styles.headerTitle}>
               {activeTab === 'assets' ? 'Pipeline' : 'Scenes'}
