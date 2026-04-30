@@ -2,7 +2,6 @@ const Asset = require('../models/assetModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
-// POST /api/v1/assets
 exports.createAsset = catchAsync(async (req, res, next) => {
   if (!req.body.sceneId) {
     return next(new AppError('Please provide a sceneId', 400));
@@ -24,7 +23,6 @@ exports.createAsset = catchAsync(async (req, res, next) => {
   });
 });
 
-// GET /api/v1/assets?sceneId=...
 exports.getAllAssets = catchAsync(async (req, res, next) => {
   const { sceneId } = req.query;
 
@@ -45,7 +43,6 @@ exports.getAllAssets = catchAsync(async (req, res, next) => {
   });
 });
 
-// GET /api/v1/assets/:id
 exports.getAssetById = catchAsync(async (req, res, next) => {
   const asset = await Asset.findById(req.params.id)
     .populate('assignedTo', 'name email')
@@ -62,7 +59,6 @@ exports.getAssetById = catchAsync(async (req, res, next) => {
   });
 });
 
-// PATCH /api/v1/assets/:id
 exports.updateAsset = catchAsync(async (req, res, next) => {
   const asset = await Asset.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -82,7 +78,6 @@ exports.updateAsset = catchAsync(async (req, res, next) => {
   });
 });
 
-// DELETE /api/v1/assets/:id
 exports.deleteAsset = catchAsync(async (req, res, next) => {
   const asset = await Asset.findByIdAndDelete(req.params.id);
 

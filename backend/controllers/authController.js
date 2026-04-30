@@ -19,7 +19,6 @@ const createSendToken = (user, statusCode, res) => {
   });
 };
 
-// POST /api/v1/users/signup
 exports.signup = catchAsync(async (req, res) => {
   const newUser = await User.create({
     name: req.body.name,
@@ -31,7 +30,6 @@ exports.signup = catchAsync(async (req, res) => {
   createSendToken(newUser, 201, res);
 });
 
-// POST /api/v1/users/login
 exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
@@ -48,7 +46,6 @@ exports.login = catchAsync(async (req, res, next) => {
   createSendToken(user, 200, res);
 });
 
-// JWT verification middleware
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
   if (
