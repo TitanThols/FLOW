@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg:          #000000;
+  --bg-elevated: #0A0A0A;
+  --surface:     #111111;
+  --surface-2:   #161616;
+  --border:      #222222;
+  --border-hover:#333333;
+  --text:        #E8E8E8;
+  --text-muted:  #666666;
+  --text-dim:    #333333;
+  --accent:      #00FF66;
+  --accent-dim:  rgba(0, 255, 102, 0.08);
+  --accent-glow: rgba(0, 255, 102, 0.2);
+  --red:         #FF3333;
+  --amber:       #FFAA00;
+  --blue:        #3388FF;
+  --purple:      #8855FF;
+  --stage-concept:  #444;
+  --stage-modeling: #3388FF;
+  --stage-texturing:#FFAA00;
+  --stage-rendering:#8855FF;
+  --stage-final:    #00FF66;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow-x: hidden; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { height: 100%; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); }
+
+::selection { background: var(--accent-dim); color: var(--accent); }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  color: inherit;
+}
+
+input, select, textarea {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 150ms var(--ease);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-dim);
+}
